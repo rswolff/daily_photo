@@ -8,5 +8,9 @@ class Photo < ActiveRecord::Base
   	order("created_at DESC").limit(1)
   end
 
+  def headline
+  	self.created_at.to_s(:med) + " - " + self.title 
+  end
+
 
 end

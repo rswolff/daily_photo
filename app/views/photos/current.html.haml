@@ -1,5 +1,7 @@
 #photo
 	-if @photo.present?
+		%h3= @photo.headline
+		%br
 		= image_tag(@photo.image.url)
 	-else
 		Coming Soon!
