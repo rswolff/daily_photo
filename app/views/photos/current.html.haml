@@ -1,2 +1,5 @@
 #photo
-	= image_tag(@photo.image.url)
+	-if @photo.present?
+		= image_tag(@photo.image.url)
+	-else
+		Coming Soon!
