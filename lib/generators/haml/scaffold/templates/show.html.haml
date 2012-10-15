@@ -1,0 +1,10 @@
+%h1 Show <%= singular_name %>
+%p
+  = link_to 'back', <%= plural_name %>_path, class: 'btn'
+  = link_to 'edit', edit_<%= singular_name %>_path(@<%= singular_name %>), class: 'btn primary'
+
+%dl
+<% for attribute in attributes -%>
+  %dt= <%= class_name %>.human_attribute_name :<%= attribute.name %>
+  %dd= @<%= singular_name %>.<%= attribute.name %>
+<% end -%>

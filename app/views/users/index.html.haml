@@ -1,0 +1,24 @@
+%h1 users
+%p= link_to 'New user', new_user_path, class: 'btn primary'
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th= User.human_attribute_name :first_name
+      %th= User.human_attribute_name :last_name
+      %th= User.human_attribute_name :email
+      %th= User.human_attribute_name :crypted_password
+      %th= User.human_attribute_name :salt
+      %th{:colspan => 3}= t 'actions'
+  
+  %tbody
+    - for user in @users
+      %tr{ :class => cycle(:odd, :even) }
+        %td= user.first_name
+        %td= user.last_name
+        %td= user.email
+        %td= user.crypted_password
+        %td= user.salt
+        %td.action= link_to 'show', user
+        %td.action= link_to 'edit', edit_user_path(user)
+        %td.action= link_to 'destroy', user, :confirm => 'Are you sure?', :method => :delete

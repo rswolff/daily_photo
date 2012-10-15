@@ -1,0 +1,16 @@
+%h1 Show user
+%p
+  = link_to 'back', users_path, class: 'btn'
+  = link_to 'edit', edit_user_path(@user), class: 'btn primary'
+
+%dl
+  %dt= User.human_attribute_name :first_name
+  %dd= @user.first_name
+  %dt= User.human_attribute_name :last_name
+  %dd= @user.last_name
+  %dt= User.human_attribute_name :email
+  %dd= @user.email
+  %dt= User.human_attribute_name :crypted_password
+  %dd= @user.crypted_password
+  %dt= User.human_attribute_name :salt
+  %dd= @user.salt
