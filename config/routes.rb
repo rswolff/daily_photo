@@ -1,8 +1,6 @@
 DailyPhoto::Application.routes.draw do
   resources :subscribers
-
   resources :photos
-
   get "current" => 'photos#current'
 
   get "pages/home"

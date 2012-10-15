@@ -7,31 +7,18 @@
           %li= msg
  
   %fieldset
-    %legend The Legend  
+    %legend Account Information  
     .control-group
-    = f.label :first_name
-    .controls
-      = f.text_field :first_name
-      %p.help-block Add help text here
+      = f.label :email, class: 'control-label'
+      .controls
+        = f.text_field :email
     .control-group
-    = f.label :last_name
-    .controls
-      = f.text_field :last_name
-      %p.help-block Add help text here
+      =f.label :password, class: 'control-label'
+      .controls
+        = f.password_field :password
     .control-group
-    = f.label :email
-    .controls
-      = f.text_field :email
-      %p.help-block Add help text here
-    .control-group
-    = f.label :crypted_password
-    .controls
-      = f.text_field :crypted_password
-      %p.help-block Add help text here
-    .control-group
-    = f.label :salt
-    .controls
-      = f.text_field :salt
-      %p.help-block Add help text here
-    .actions
-    = f.submit 'Submit', class: 'btn primary'
+      =f.label :password_confirmation, 'Password Confirmation', class: 'control-label'
+      .controls
+        = f.password_field :password_confirmation        
+    .form-actions
+      = f.submit 'Submit', class: 'btn btn-primary'
