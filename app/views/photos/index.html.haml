@@ -1,4 +1,4 @@
-%h1 photos
+%h1 Photo History
 %p= link_to 'New photo', new_photo_path, class: 'btn primary'
 
 %table.table.table-bordered.table-striped
@@ -6,13 +6,9 @@
     %tr
       %th= Photo.human_attribute_name :title
       %th= Photo.human_attribute_name :date_taken
-      %th{:colspan => 3}= t 'actions'
   
   %tbody
     - for photo in @photos
       %tr{ :class => cycle(:odd, :even) }
-        %td= photo.title
-        %td= photo.date_taken
-        %td.action= link_to 'show', photo
-        %td.action= link_to 'edit', edit_photo_path(photo)
-        %td.action= link_to 'destroy', photo, :confirm => 'Are you sure?', :method => :delete
+        %td= link_to photo.title, photo
+        %td= photo.date_taken.to_s(:long)

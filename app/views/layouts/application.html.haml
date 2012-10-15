@@ -14,9 +14,8 @@
 
     .container
       - flash.each do |key, value|
-        #flash{:class => "alert-message #{key}"}
+        #flash{:class => "alert #{alert_type(key)}"}
           =link_to "x", nil, :class => 'close'
-          %p
-            =value
+          %h4=value
     
       = yield

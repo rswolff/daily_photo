@@ -1,0 +1,16 @@
+%h1 Subscribers
+%p= link_to 'New subscriber', new_subscriber_path, class: 'btn btn-primary'
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th= Subscriber.human_attribute_name :email
+      %th{:colspan => 3}= t 'actions'
+  
+  %tbody
+    - for subscriber in @subscribers
+      %tr{ :class => cycle(:odd, :even) }
+        %td= subscriber.email
+        %td.action= link_to 'show', subscriber
+        %td.action= link_to 'edit', edit_subscriber_path(subscriber)
+        %td.action= link_to 'destroy', subscriber, :confirm => 'Are you sure?', :method => :delete

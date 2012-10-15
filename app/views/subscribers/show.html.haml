@@ -1,0 +1,8 @@
+%h1 Show subscriber
+%p
+  = link_to 'back', subscribers_path, class: 'btn'
+  = link_to 'edit', edit_subscriber_path(@subscriber), class: 'btn primary'
+
+%dl
+  %dt= Subscriber.human_attribute_name :email
+  %dd= @subscriber.email

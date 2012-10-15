@@ -1,0 +1,16 @@
+= form_for(@subscriber, html: {class: 'form-horizontal'}) do |f|
+  - if @subscriber.errors.any?
+    #errorExplanation.alert-message.block-message.error
+      %h2= "#{pluralize(@subscriber.errors.count, 'error')} prohibited this subscriber from being saved:"
+      %ul
+        - @subscriber.errors.full_messages.each do |msg|
+          %li= msg
+ 
+  %fieldset
+    %legend Subscriber Email 
+    .control-group
+      = f.label :email, 'Email Address', class: 'control-label'
+      .controls
+        = f.text_field :email
+    .form-actions
+      = f.submit 'Submit', class: 'btn primary'
