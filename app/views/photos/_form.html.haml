@@ -9,6 +9,10 @@
   %fieldset
     %legend Photo Details  
     .control-group
+      = f.label :image, 'Image', class: 'control-label'
+      .controls
+        = f.file_field :image
+    .control-group
       = f.label :title, 'Title', class: 'control-label'
       .controls
         = f.text_field :title
@@ -16,9 +20,6 @@
       = f.label :date_taken, class: 'control-label'
       .controls
         = f.date_select :date_taken
-    .control-group
-      = f.label :imate, 'Image', class: 'control-label'
-      .controls
-        = f.file_field :image
+
     .form-actions
       = f.submit 'Submit', class: 'btn primary'
