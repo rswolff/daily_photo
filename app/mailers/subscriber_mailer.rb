@@ -1,5 +1,5 @@
 class SubscriberMailer < ActionMailer::Base
-  default from: "rw@chb.ca"
+  default from: "\"Robb Wolff\" <rw@chb.ca>"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
