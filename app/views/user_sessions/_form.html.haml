@@ -1,0 +1,11 @@
+= form_tag(user_sessions_path, html: {class: 'form-horizontal'}, method: :post, ) do
+  .control-group
+    = label_tag :email, nil, class: 'control-label'
+    .controls
+      = text_field_tag :email 
+  .control-group
+    = label_tag :password, nil, class: 'control-label'
+    .controls
+      = password_field_tag :password
+  .form-actions
+    = submit_tag "Login"

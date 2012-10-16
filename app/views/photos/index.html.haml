@@ -1,14 +1,20 @@
 %h1 Photo History
-%p= link_to 'New photo', new_photo_path, class: 'btn primary'
+
+- if can? :create, Photo
+  %p= link_to 'New photo', new_photo_path, class: 'btn primary'
 
 %table.table.table-bordered.table-striped
   %thead
     %tr
       %th= Photo.human_attribute_name :title
       %th= Photo.human_attribute_name :date_taken
+      -if can? :edit, Photo
+        %th Actions
   
   %tbody
     - for photo in @photos
       %tr{ :class => cycle(:odd, :even) }
         %td= link_to photo.title, photo
         %td= photo.date_taken.to_s(:long)
+        -if can? :edit, Photo
+          %td= link_to 'Edit Photo', edit_photo_path(photo), class: 'btn'

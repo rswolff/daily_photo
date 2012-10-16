@@ -1,19 +1,18 @@
 DailyPhoto::Application.routes.draw do
   resources :subscribers
   resources :photos
+  resources :user_sessions
+  resources :users
+  
   get "current" => 'photos#current'
 
   get "pages/home"
 
-  get "user_sessions/new"
-
-  get "user_sessions/create"
-
-  get "user_sessions/destroy"
+  
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
 
   root :to => 'photos#current'
-
-  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

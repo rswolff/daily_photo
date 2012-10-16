@@ -6,4 +6,6 @@
         %ul.nav
           %li= link_to "history", photos_path
           %li= link_to "subscribe", new_subscriber_path
+          -if current_user
+            %li= link_to "logout #{current_user.email}", logout_path
 

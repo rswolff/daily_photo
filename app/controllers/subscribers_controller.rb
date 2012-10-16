@@ -1,4 +1,7 @@
 class SubscribersController < ApplicationController
+
+  before_filter :require_login, :except => [:new, :create]
+
   # GET /subscribers
   # GET /subscribers.json
   def index
@@ -44,7 +47,13 @@ class SubscribersController < ApplicationController
 
     respond_to do |format|
       if @subscriber.save
-        format.html { redirect_to @subscriber, notice: 'Subscriber was successfully created.' }
+        format.html { 
+          if current_user
+            redirect_to subscribers_path, notice: 'Subscriber was successfully created.' 
+          else
+            redirect_to root_path, notice: 'Subscriber was successfully created.' 
+          end
+        }
         format.json { render json: @subscriber, status: :created, location: @subscriber }
       else
         format.html { render action: "new" }
