@@ -3,4 +3,4 @@
   %dt= Photo.human_attribute_name :date_taken
   %dd= @photo.date_taken
 
-= image_tag @photo.image.url
+= image_tag @photo.image.url(:medium)

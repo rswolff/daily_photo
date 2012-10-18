@@ -2,6 +2,6 @@
 	-if @photo.present?
 		%h3= @photo.headline
 		%br
-		= image_tag(@photo.image.url)
+		= image_tag(@photo.image.url(:medium))
 	-else
 		Coming Soon!
