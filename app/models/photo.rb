@@ -1,6 +1,6 @@
 class Photo < ActiveRecord::Base
   attr_accessible :date_taken, :title, :image
-  has_attached_file :image
+  has_attached_file :image, :styles => { :medium => "940x940>", :thumb => "120x120>"}
 
   default_scope order("created_at DESC")
 
