@@ -14,7 +14,7 @@
   %tbody
     - for photo in @photos
       %tr{ :class => cycle(:odd, :even) }
-        %td{class: 'span3'}= photo.created_at.to_s(:long)
-        %td{class: 'span9'}= link_to photo.title, photo
+        %td{class: 'span3'}= photo.created_at.to_s(:med)
+        %td= link_to photo.title, photo
         -if can? :edit, Photo
           %td= link_to 'Edit Photo', edit_photo_path(photo), class: 'btn'
