@@ -4,7 +4,7 @@
       =link_to "Robb's Daily Photo", root_path, {:class => 'brand'}
       .nav-collapse
         %ul.nav
-          %li= link_to "History", photos_path
+          %li= link_to "Past Photos", photos_path
           %li= link_to "Subscribe", new_subscriber_path
           -if current_user
             %li= link_to "Upload Photo", new_photo_path
