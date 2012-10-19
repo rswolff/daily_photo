@@ -1,9 +1,9 @@
 %h1= @photo.title
 %dl
   %dt= Photo.human_attribute_name :date_taken
-  %dd= @photo.date_taken
+  %dd= @photo.date_taken if @photo.date_taken.present?
 
 = image_tag @photo.image.url(:medium)
 
 #exif
-  = "Camera: #{@photo.camera_brand_model}"
+  = "Camera: #{@photo.camera_brand_model}" if @photo.camera_brand_model.present?
