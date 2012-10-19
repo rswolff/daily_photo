@@ -1,2 +1,17 @@
 %h1 Add New Photo
-= render 'form'
+= form_for(@photo, html: {class: 'form-horizontal'}) do |f|
+  - if @photo.errors.any?
+    #errorExplanation.alert-message.block-message.error
+      %h2= "#{pluralize(@photo.errors.count, 'error')} prohibited this photo from being saved:"
+      %ul
+        - @photo.errors.full_messages.each do |msg|
+          %li= msg
+ 
+  %fieldset
+    %legend Photo Details  
+    .control-group
+      = f.label :image, 'Image', class: 'control-label'
+      .controls
+        = f.file_field :image
+    .form-actions
+      = f.submit 'Submit', class: 'btn primary'

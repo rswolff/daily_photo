@@ -5,21 +5,19 @@
       %ul
         - @photo.errors.full_messages.each do |msg|
           %li= msg
- 
+
   %fieldset
     %legend Photo Details  
-    .control-group
-      = f.label :image, 'Image', class: 'control-label'
-      .controls
-        = f.file_field :image
     .control-group
       = f.label :title, 'Title', class: 'control-label'
       .controls
         = f.text_field :title
     .control-group
-      = f.label :date_taken, class: 'control-label'
+      = f.label :date_taken, 'Date Taken', class: 'control-label'
       .controls
-        = f.date_select :date_taken
-
+        = f.text_field :date_taken
     .form-actions
       = f.submit 'Submit', class: 'btn primary'
+
+- if @photo.image.present?
+  = image_tag @photo.image.url(:medium)

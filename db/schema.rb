@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121015190400) do
+ActiveRecord::Schema.define(:version => 20121018185217) do
 
   create_table "photos", :force => true do |t|
     t.string   "title"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(:version => 20121015190400) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "camera_brand"
+    t.string   "camera_model"
+    t.string   "exposure_time"
+    t.float    "f_number"
+    t.integer  "iso_speed_rating"
+    t.float    "focal_length"
   end
 
   create_table "subscribers", :force => true do |t|

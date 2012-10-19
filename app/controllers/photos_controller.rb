@@ -50,7 +50,7 @@ class PhotosController < ApplicationController
           SubscriberMailer.new_photo(subscriber, @photo).deliver
         end
 
-        format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
+        format.html { redirect_to edit_photo_path(@photo), notice: 'Photo was successfully created.' }
       else
         format.html { render action: "new" }
       end

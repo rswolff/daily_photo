@@ -4,3 +4,6 @@
   %dd= @photo.date_taken
 
 = image_tag @photo.image.url(:medium)
+
+#exif
+  = "Camera: #{@photo.camera_brand_model}"

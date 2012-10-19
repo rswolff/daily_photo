@@ -52,6 +52,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    exifr (1.1.3)
     faraday (0.8.4)
       multipart-post (~> 1.1)
     haml (3.1.7)
@@ -175,6 +176,7 @@ DEPENDENCIES
   capistrano
   coffee-rails (~> 3.2.1)
   execjs
+  exifr
   haml
   jquery-rails
   json
