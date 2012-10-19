@@ -6,4 +6,4 @@
 = image_tag @photo.image.url(:medium)
 
 #exif
-  = "Camera: #{@photo.camera_brand_model}" if @photo.camera_brand_model.present?
+  = "Camera: #{@photo.camera_model}" if @photo.camera_model.present?

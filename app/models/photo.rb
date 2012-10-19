@@ -16,7 +16,7 @@ class Photo < ActiveRecord::Base
   end
 
   def camera_brand_model
-  	self.camera_brand + " " + self.camera_model
+  	camera_brand + " " + camera_model if camera_brand && cameral_model
   end
 
 	def set_exif_data
