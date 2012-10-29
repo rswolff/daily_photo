@@ -18,7 +18,9 @@
         %td{class: 'span2', style: 'text-align: center'}
           = link_to(image_tag(photo.image.url(:thumb)), photo_path(photo))
         %td{class: 'span3'}= photo.created_at.to_s(:med)
-        %td= link_to photo.title, photo
+        %td
+          %p= link_to photo.title, photo
+          %p= photo.description
         -if can? :edit, Photo
           %td
             = link_to 'Edit Photo', edit_photo_path(photo), class: 'btn'
