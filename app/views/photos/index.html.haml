@@ -6,7 +6,7 @@
 %table.table.table-bordered.table-striped
   %thead
     %tr
-      %th &nbsp;
+      %th Photo
       %th Published
       %th= Photo.human_attribute_name :title
       -if can? :edit, Photo
@@ -20,4 +20,7 @@
         %td{class: 'span3'}= photo.created_at.to_s(:med)
         %td= link_to photo.title, photo
         -if can? :edit, Photo
-          %td= link_to 'Edit Photo', edit_photo_path(photo), class: 'btn'
+          %td
+            = link_to 'Edit Photo', edit_photo_path(photo), class: 'btn'
+            - unless photo.state == 'published'
+              = link_to 'Email Photo', photo_publish_path(photo), class: 'btn btn-primary'

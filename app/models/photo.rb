@@ -1,7 +1,9 @@
 require 'exifr' #TODO - this won't require
 class Photo < ActiveRecord::Base
-  attr_accessible :date_taken, :title, :image
-  has_attached_file :image, :styles => { :medium => "940x940>", :thumb => "120x120>"}
+  attr_accessible :date_taken, :title, :image, :description
+  has_attached_file :image, :styles => { :medium => "940x940>", :email=> "300x300", :thumb => "120x120>"}
+
+  STATES = ['Unpublished', 'Published']
 
   default_scope order("created_at DESC")
 
@@ -39,5 +41,24 @@ class Photo < ActiveRecord::Base
 		  self.focal_length = exif.focal_length.to_f
 		  self.date_taken = exif.date_time
 		end
+	end
+
+	state_machine :state, :initial => :unpublished do
+
+		after_transition :on => :publish, :do => :notify_subscribers
+
+		event :publish do 
+			transition :unpublished => :published
+		end
+
+		event :unpublish do
+			transition :published => :unpublished
+		end
+	end
+
+	def notify_subscribers
+		Subscriber.all.each do |subscriber|
+      SubscriberMailer.new_photo(subscriber, self).deliver
+    end
 	end
 end

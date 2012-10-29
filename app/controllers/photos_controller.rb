@@ -46,10 +46,6 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       if @photo.save
-        Subscriber.all.each do |subscriber|
-          SubscriberMailer.new_photo(subscriber, @photo).deliver
-        end
-
         format.html { redirect_to edit_photo_path(@photo), notice: 'Photo was successfully created.' }
       else
         format.html { render action: "new" }
@@ -85,5 +81,17 @@ class PhotosController < ApplicationController
 
   def current
     @photo = Photo.current.first
+  end
+
+  def publish
+    @photo = Photo.find(params[:photo_id])
+    @photo.publish
+    
+    respond_to do |format|
+      format.html {
+        redirect_to edit_photo_path(@photo), notice: 'Photo was published.'
+      }
+    end
+
   end
 end

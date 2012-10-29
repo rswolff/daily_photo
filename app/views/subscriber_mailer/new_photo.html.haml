@@ -1,2 +1,8 @@
-%p= "Here's the latest photo: #{raw(link_to @photo.title, photo_url(@photo, host: 'robbsdailyphoto.com'))}"
-%p Robb
+!!!
+%head 
+	%meta{:content => "text/html; charset=UTF-8", :'http-equiv' => "Content-Type"}
+%body
+	%p= link_to @photo.title, photo_url(@photo, host: 'robbsdailyphoto.com')
+	%p= image_tag attachments['image.jpg'].url
+	%p= @photo.description
+	%p Robb

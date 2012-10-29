@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121018185217) do
+ActiveRecord::Schema.define(:version => 20121029014019) do
 
   create_table "photos", :force => true do |t|
     t.string   "title"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(:version => 20121018185217) do
     t.float    "f_number"
     t.integer  "iso_speed_rating"
     t.float    "focal_length"
+    t.text     "description"
+    t.string   "state"
   end
 
   create_table "subscribers", :force => true do |t|

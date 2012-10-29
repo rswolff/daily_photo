@@ -9,6 +9,7 @@ class SubscriberMailer < ActionMailer::Base
   def new_photo(subscriber, photo)
     @subscriber = subscriber
     @photo = photo
+    attachments.inline['image.jpg'] = File.read("#{@photo.image.path(:email)}")
     mail to: subscriber.email, subject: "New Photo: #{@photo.title}"
   end
 end
