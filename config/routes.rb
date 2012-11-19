@@ -2,6 +2,7 @@ DailyPhoto::Application.routes.draw do
   resources :subscribers
   resources :photos do
     get 'publish'
+    get 'download'
   end
   resources :user_sessions
   resources :users

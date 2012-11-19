@@ -94,4 +94,9 @@ class PhotosController < ApplicationController
     end
 
   end
+
+  def download
+    @photo = Photo.find(params[:photo_id])
+    send_file(@photo.image.path, :type => 'image/jpeg')
+  end
 end

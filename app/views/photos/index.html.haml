@@ -24,5 +24,6 @@
         -if can? :edit, Photo
           %td
             = link_to 'Edit Photo', edit_photo_path(photo), class: 'btn'
+            = link_to 'Download Photo', photo_download_path(photo), class: 'btn btn-primary'
             - unless photo.state == 'published'
               = link_to 'Email Photo', photo_publish_path(photo), class: 'btn btn-primary'
