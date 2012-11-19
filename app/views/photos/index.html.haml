@@ -21,9 +21,9 @@
         %td
           %p= link_to photo.title, photo
           %p= photo.description
-        -if can? :edit, Photo
-          %td
-            = link_to 'Edit Photo', edit_photo_path(photo), class: 'btn'
-            = link_to 'Download Photo', photo_download_path(photo), class: 'btn btn-primary'
+        %td
+          = link_to 'Download Photo', photo_download_path(photo), class: 'btn btn-primary'
+          -if can? :edit, Photo
+            = link_to 'Edit Photo', edit_photo_path(photo), class: 'btn'  
             - unless photo.state == 'published'
               = link_to 'Email Photo', photo_publish_path(photo), class: 'btn btn-primary'
