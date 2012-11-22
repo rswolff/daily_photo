@@ -27,3 +27,5 @@
             = link_to 'Edit Photo', edit_photo_path(photo), class: 'btn'  
             - unless photo.state == 'published'
               = link_to 'Email Photo', photo_publish_path(photo), class: 'btn btn-primary'
+
+= paginate @photos              

@@ -9,6 +9,8 @@ class Photo < ActiveRecord::Base
 
   after_image_post_process :set_exif_data
 
+  paginates_per 25
+
   def self.current
   	order("created_at DESC").limit(1)
   end

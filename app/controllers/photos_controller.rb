@@ -7,7 +7,7 @@ class PhotosController < ApplicationController
   # GET /photos.json
   def index
 
-    @photos = Photo.all
+    @photos = Photo.order(:created_at).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
