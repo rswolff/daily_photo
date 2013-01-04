@@ -3,6 +3,8 @@ class Photo < ActiveRecord::Base
   attr_accessible :date_taken, :title, :image, :description
   has_attached_file :image, :styles => { :medium => "940x940>", :email=> "300x300", :thumb => "120x120>"}
 
+  validates_presence_of :title
+
   STATES = ['Unpublished', 'Published']
 
   default_scope order("created_at DESC")
