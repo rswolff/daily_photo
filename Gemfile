@@ -48,3 +48,4 @@ gem "pry", :group => "development"
 gem "paperclip", "~> 3.0"
 gem "rmagick"
 gem "exifr"
+gem 'libv8', '~> 3.11.8'
