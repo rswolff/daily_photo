@@ -3,5 +3,10 @@
 		%h3= @photo.headline
 		%br
 		= image_tag(@photo.image.url(:medium))
+		#div
+			%br
+			= link_to 'Like This Photo', photo_like_path(@photo), class: 'btn btn-primary'
+			%br
+			= "This photo has #{pluralize(@photo.likes_count, 'like')}"
 	-else
 		Coming Soon!

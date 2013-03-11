@@ -14,3 +14,4 @@
 
 = link_to 'Download Photo', photo_download_path(@photo), class: 'btn btn-primary'
 = link_to 'Like', photo_like_path(@photo), class: 'btn btn-primary'
+= "This photo has #{pluralize(@photo.likes_count, 'like')}"
