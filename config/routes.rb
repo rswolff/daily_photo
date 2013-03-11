@@ -3,6 +3,7 @@ DailyPhoto::Application.routes.draw do
   resources :photos do
     get 'publish'
     get 'download'
+    get 'like'
   end
   resources :user_sessions
   resources :users

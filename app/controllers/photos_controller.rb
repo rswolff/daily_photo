@@ -99,4 +99,15 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:photo_id])
     send_file(@photo.image.path, :type => 'image/jpeg')
   end
+
+  def like
+    @photo = Photo.find(params[:photo_id])
+    @photo.increment_like_count if @photos
+    respond_to do |format|
+      format.html {
+        flash[:notice] = 'Thank you for liking this photo. I like you too!'
+        render :show
+      }
+    end
+  end
 end

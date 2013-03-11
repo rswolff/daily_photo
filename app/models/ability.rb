@@ -6,7 +6,7 @@ class Ability
     #
     user ||= User.new # guest user (not logged in)
 
-    can [:read, :current, :download], Photo
+    can [:read, :current, :download, :like], Photo
 
     if user.email?
       can :manage, Photo

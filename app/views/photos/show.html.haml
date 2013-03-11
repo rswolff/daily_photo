@@ -13,3 +13,4 @@
   %p= "Camera: #{@photo.camera_model}" if @photo.camera_model.present?
 
 = link_to 'Download Photo', photo_download_path(@photo), class: 'btn btn-primary'
+= link_to 'Like', photo_like_path(@photo), class: 'btn btn-primary'

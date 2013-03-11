@@ -11,13 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121029014019) do
+ActiveRecord::Schema.define(:version => 20130311015248) do
+
+  create_table "likes", :force => true do |t|
+    t.integer  "subscriber_id"
+    t.integer  "photo_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "photos", :force => true do |t|
     t.string   "title"
     t.date     "date_taken"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -32,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20121029014019) do
     t.float    "focal_length"
     t.text     "description"
     t.string   "state"
+    t.integer  "likes_count",        :default => 0
   end
 
   create_table "subscribers", :force => true do |t|
