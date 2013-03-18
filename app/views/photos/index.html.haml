@@ -9,6 +9,8 @@
       %th Photo
       %th Published
       %th= Photo.human_attribute_name :title
+      %th Likes
+      %th Download
       -if can? :edit, Photo
         %th Actions
   
@@ -22,8 +24,11 @@
           %p= link_to photo.title, photo
           %p= photo.description
         %td
+          = photo.likes_count
+        %td
           = link_to 'Download Photo', photo_download_path(photo), class: 'btn btn-primary'
-          -if can? :edit, Photo
+        -if can? :edit, Photo
+          %td
             = link_to 'Edit Photo', edit_photo_path(photo), class: 'btn'  
             - unless photo.state == 'published'
               = link_to 'Email Photo', photo_publish_path(photo), class: 'btn btn-primary'
